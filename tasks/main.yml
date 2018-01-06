@@ -1,2 +1,31 @@
----
-# tasks file for diff-so-fancy
+- fail: msg="Please set the `node_path` fact before running this role, or pass it as a variable"
+  when: node_path is undefined
+
+- name: "Install `diff-so-fancy`"
+  npm:
+    name: diff-so-fancy
+    state: latest
+    global: yes
+  become: no
+  environment:
+    PATH: "{{ node_path }}:{{ ansible_env.PATH }}"
+
+- name: "Configure GIT"
+  git_config:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    scope: global
+  with_dict: {
+    core.pager: "diff-so-fancy | less --tabs=4 -RFX",
+    color.ui: true,
+    color.diff-highlight.oldNormal: "red bold",
+    color.diff-highlight.oldHighlight: "red bold 52",
+    color.diff-highlight.newNormal: "green bold",
+    color.diff-highlight.newHighlight: "green bold 22",
+    color.diff.meta: "227",
+    color.diff.frag: "magenta bold",
+    color.diff.commit: "227 bold",
+    color.diff.old: "red bold",
+    color.diff.new: "green bold",
+    color.diff.whitespace: "red reverse"
+  }

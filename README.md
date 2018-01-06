@@ -1,38 +1,60 @@
-Role Name
-=========
+[![Build Status](https://travis-ci.org/FlorianKempenich/ansible-role-nvm-node-npm.svg?branch=master)](https://travis-ci.org/FlorianKempenich/ansible-role-nvm-node-npm) [![Ansible Role](https://img.shields.io/ansible/role/23202.svg)](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm)
 
-A brief description of the role goes here.
+# Ansible role: `diff-so-fancy`
+Install `diff-so-fancy` and set-up `git`
 
-Requirements
-------------
+## Requirements
+`NodeJs` and `npm` is required.
+Also the path to the `node` executable needs to be set, see **Role Variables**
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Role Variables
+**Set the `node_path` variable to the path of the `node` executable**
 
-Role Variables
---------------
+Before running this role set the `node_path` fact before running this role, or pass it as a variable
+If `node` is already accessible with the default `PATH` environment variable, you can set `node_path` to an empty string.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+If `node` was installed with `nvm`, check out this cool project of mine that will the the `node_path` fact for you: [FlorianKempenich.nvm-node-npm](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm)  
+See below for examples.
 
-Dependencies
-------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Example Playbook
+Basic installation:
+```
+- hosts: sandbox
+  tasks:
+    - include_role:
+        name: FlorianKempenich.diff-so-fancy
+      vars:
+        node_path: "{{ ansible_env.HOME }}/.nvm/versions/node/v6.11.4/bin"
+```
 
-Example Playbook
-----------------
+If `node` is accessible with the default `PATH` variable, an empty `node_path` will do:
+```
+- hosts: sandbox
+  tasks:
+    - include_role:
+        name: FlorianKempenich.diff-so-fancy
+      vars:
+        node_path: "" <--- Setting the variable is still required !!
+```
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Setting the path on a `nvm` installation with [FlorianKempenich.nvm-node-npm](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm):
+```
+- hosts: sandbox
+  tasks:
+    - include_role:
+        name: FlorianKempenich.nvm-node-npm
+        tasks_from: set-node-path-fact.yml
+                      ^
+                      ^--- This sets the `node_path` fact.
+                           No more need to pass it as variable.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    - include_role:
+        name: FlorianKempenich.diff-so-fancy
+```
 
-License
--------
+## License
+MIT
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## Author Information
+Find out more about my work: [Florian Kempenich](https://floriankempenich.com)
