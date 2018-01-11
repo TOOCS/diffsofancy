@@ -1,4 +1,5 @@
-- fail: msg="Please set the `node_path` fact before running this role, or pass it as a variable"
+- name: "Ensure 'node_path' is set"
+  fail: msg="Please set the `node_path` fact before running this role, or pass it as a variable"
   when: node_path is undefined
 
 - name: "Install `diff-so-fancy`"
