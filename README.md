@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/FlorianKempenich/ansible-role-nvm-node-npm.svg?branch=master)](https://travis-ci.org/FlorianKempenich/ansible-role-nvm-node-npm) [![Ansible Role](https://img.shields.io/ansible/role/23202.svg)](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm)
+[![Build Status](https://travis-ci.org/FlorianKempenich/ansible-role-diff-so-fancy.svg?branch=master)](https://travis-ci.org/FlorianKempenich/ansible-role-diff-so-fancy) [![Ansible Role](https://img.shields.io/ansible/role/23203.svg)](https://galaxy.ansible.com/FlorianKempenich/diff-so-fancy)
 
 # Ansible role: `diff-so-fancy`
 Install `diff-so-fancy` and set-up `git`
