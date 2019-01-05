@@ -1,5 +1,4 @@
 galaxy_info:
-  role_name: diff-so-fancy-this-is-a-test
   author: Florian Kempenich
   description: Install `diff-so-fancy` and set-up `git`
 
