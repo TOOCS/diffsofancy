@@ -13,7 +13,7 @@ Also the path to the `node` executable needs to be set, see **Role Variables**
 Before running this role set the `node_path` fact before running this role, or pass it as a variable
 If `node` is already accessible with the default `PATH` environment variable, you can set `node_path` to an empty string.
 
-If `node` was installed with `nvm`, check out this cool project of mine that will the the `node_path` fact for you: [FlorianKempenich.nvm-node-npm](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm)  
+If `node` was installed with `nvm`, check out this cool project of mine that will the the `node_path` fact for you: [FlorianKempenich.toocs_nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs)  
 See below for examples.
 
 
@@ -38,12 +38,12 @@ If `node` is accessible with the default `PATH` variable, an empty `node_path` w
         node_path: "" <--- Setting the variable is still required !!
 ```
 
-Setting the path on a `nvm` installation with [FlorianKempenich.nvm-node-npm](https://galaxy.ansible.com/FlorianKempenich/nvm-node-npm):
+Setting the path on a `nvm` installation with [FlorianKempenich.toocs_nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs):
 ```
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.nvm-node-npm
+        name: FlorianKempenich.toocs_nodejs
         tasks_from: set-node-path-fact.yml
                       ^
                       ^--- This sets the `node_path` fact.
