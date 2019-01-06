@@ -1,7 +1,16 @@
-[![Build Status](https://travis-ci.org/FlorianKempenich/ansible-role-diff-so-fancy.svg?branch=master)](https://travis-ci.org/FlorianKempenich/ansible-role-diff-so-fancy) [![Ansible Role](https://img.shields.io/ansible/role/23203.svg)](https://galaxy.ansible.com/FlorianKempenich/diff-so-fancy)
+[![Build Status](https://travis-ci.org/FlorianKempenich/TOOCS-diffsofancy.svg?branch=master)](https://travis-ci.org/FlorianKempenich/TOOCS-diffsofancy) [![Ansible Role](https://img.shields.io/ansible/role/23203.svg)](https://galaxy.ansible.com/FlorianKempenich/toocs_diffsofancy)
 
-# Ansible role: `diff-so-fancy`
+
+# TOOCS / Ansible Role: `toocs_diffsofancy`
+> #### /!\ This role has been renamed - Old name: `diff-so-fancy` /!\
+
 Install `diff-so-fancy` and set-up `git`
+
+> ### TOOCS?
+> TOOCS - The Opinionated One-Click Setups are a set of tools / ansible roles designed to setup a system in one click. They are a simple, reliable, way to setup a given tool. You can use them as is, or, inspecting their code, as a tutorial to follow step by step.
+> 
+> They are, as their name suggests, opinionated: while they guarantee to setup the given tool in one click, they do **not** guarantee consistency in _how_ they achieve it, new releases might introduce breaking changes.  
+> Read the code and make sure you understand what's happening!
 
 ## Requirements
 `NodeJs` and `npm` is required.
@@ -23,7 +32,7 @@ Basic installation:
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.diff-so-fancy
+        name: FlorianKempenich.toocs_diffsofancy
       vars:
         node_path: "{{ ansible_env.HOME }}/.nvm/versions/node/v6.11.4/bin"
 ```
@@ -33,7 +42,7 @@ If `node` is accessible with the default `PATH` variable, an empty `node_path` w
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.diff-so-fancy
+        name: FlorianKempenich.toocs_diffsofancy
       vars:
         node_path: "" <--- Setting the variable is still required !!
 ```
@@ -50,7 +59,7 @@ Setting the path on a `nvm` installation with [FlorianKempenich.toocs_nodejs](ht
                            No more need to pass it as variable.
 
     - include_role:
-        name: FlorianKempenich.diff-so-fancy
+        name: FlorianKempenich.toocs_diffsofancy
 ```
 
 ## License
