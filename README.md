@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/TOOCS/diffsofancy.svg?branch=master)](https://travis-ci.org/TOOCS/diffsofancy) [![Ansible Role](https://img.shields.io/ansible/role/36158.svg)](https://galaxy.ansible.com/FlorianKempenich/toocs_diffsofancy)
+[![Build Status](https://travis-ci.org/TOOCS/diffsofancy.svg?branch=master)](https://travis-ci.org/TOOCS/diffsofancy) [![Ansible Role](https://img.shields.io/ansible/role/36158.svg)](https://galaxy.ansible.com/TOOCS/diffsofancy)
 
 
-# TOOCS / Ansible Role: `FlorianKempenich.toocs_diffsofancy`
-> #### /!\ This role has been renamed - Old name: `diff-so-fancy` /!\
+# TOOCS / Ansible Role: `TOOCS.diffsofancy`
+> #### /!\ This role has been renamed - Old name: `FlorianKempenich.diff-so-fancy` /!\
 
 Install `diff-so-fancy` and set-up `git`
 
@@ -22,7 +22,7 @@ Also the path to the `node` executable needs to be set, see **Role Variables**
 Before running this role set the `node_path` fact before running this role, or pass it as a variable
 If `node` is already accessible with the default `PATH` environment variable, you can set `node_path` to an empty string.
 
-If `node` was installed with `nvm`, check out this cool project of mine that will the the `node_path` fact for you: [FlorianKempenich.toocs_nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs)  
+If `node` was installed with `nvm`, check out this cool project of mine that will the the `node_path` fact for you: [TOOCS.nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs)  
 See below for examples.
 
 
@@ -32,7 +32,7 @@ Basic installation:
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.toocs_diffsofancy
+        name: TOOCS.diffsofancy
       vars:
         node_path: "{{ ansible_env.HOME }}/.nvm/versions/node/v6.11.4/bin"
 ```
@@ -42,24 +42,24 @@ If `node` is accessible with the default `PATH` variable, an empty `node_path` w
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.toocs_diffsofancy
+        name: TOOCS.diffsofancy
       vars:
         node_path: "" <--- Setting the variable is still required !!
 ```
 
-Setting the path on a `nvm` installation with [FlorianKempenich.toocs_nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs):
+Setting the path on a `nvm` installation with [TOOCS.nodejs](https://galaxy.ansible.com/FlorianKempenich/toocs_nodejs):
 ```
 - hosts: sandbox
   tasks:
     - include_role:
-        name: FlorianKempenich.toocs_nodejs
+        name: TOOCS.nodejs
         tasks_from: set-node-path-fact.yml
                       ^
                       ^--- This sets the `node_path` fact.
                            No more need to pass it as variable.
 
     - include_role:
-        name: FlorianKempenich.toocs_diffsofancy
+        name: TOOCS.diffsofancy
 ```
 
 ## License
