@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/TOOCS/diffsofancy.svg?branch=master)](https://travis-ci.org/TOOCS/diffsofancy) [![Ansible Role](https://img.shields.io/ansible/role/36158.svg)](https://galaxy.ansible.com/TOOCS/diffsofancy)
+[![Build Status](https://travis-ci.org/TOOCS/diffsofancy.svg?branch=master)](https://travis-ci.org/TOOCS/diffsofancy) [![Ansible Role](https://img.shields.io/ansible/role/36199.svg)](https://galaxy.ansible.com/TOOCS/diffsofancy)
 
 
 # TOOCS / Ansible Role: `TOOCS.diffsofancy`
