@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: toocs_diffsofancy
+  role_name: diffsofancy
   author: Florian Kempenich
   description: Install `diff-so-fancy` and set-up `git`
 
